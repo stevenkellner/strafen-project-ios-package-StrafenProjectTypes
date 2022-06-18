@@ -31,7 +31,7 @@ extension Person {
 }
 
 extension Person: Equatable {
-    public static func ==(lhs: ReasonTemplate, rhs: ReasonTemplate) -> Bool {
+    public static func ==(lhs: Person, rhs: Person) -> Bool {
         return lhs.id == rhs.id && lhs.name == rhs.name
     }
 }

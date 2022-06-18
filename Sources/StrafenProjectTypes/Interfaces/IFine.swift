@@ -17,7 +17,7 @@ public protocol IFine {
     associatedtype FineReason: IFineReason
     
     /// Id of the fine.
-    var id: Fine.Id { get }
+    var id: Fine.ID { get }
     
     /// Associated person id of the fine.
     var personId: Person.ID { get }

@@ -11,10 +11,10 @@ import Foundation
 public protocol IPersonName {
     
     /// First name of the person.
-    var first: String
+    var first: String { get }
     
     /// Last name of the person.
-    var last: String?
+    var last: String? { get }
 }
 
 extension IPersonName {

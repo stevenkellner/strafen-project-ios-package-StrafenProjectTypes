@@ -15,6 +15,11 @@ public struct Tagged<Tag, RawValue> {
         self.rawValue = rawValue
     }
     
+    public init?(rawValue: RawValue?) {
+        guard let rawValue else { return nil }
+        self.init(rawValue: rawValue)
+    }
+    
     public func map<B>(_ f: (RawValue) -> B) -> Tagged<Tag, B> {
         return .init(rawValue: f(self.rawValue))
     }
@@ -78,7 +83,7 @@ extension Tagged: Decodable where RawValue: Decodable {
         do {
             self.init(rawValue: try decoder.singleValueContainer().decode(RawValue.self))
         } catch {
-            self.init(rawValue: try .init(from: decoder))
+            self.init(rawValue: try RawValue(from: decoder))
         }
     }
 }

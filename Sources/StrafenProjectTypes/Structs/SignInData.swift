@@ -39,6 +39,6 @@ extension SignInData {
 
 extension SignInData: Equatable {
     public static func ==(lhs: SignInData, rhs: SignInData) -> Bool {
-        return lhs.admin == rhs.admin && lhs.signInDate == rhs.signInDate && lhs.userId == rhs.userId
+        return lhs.admin == rhs.admin && Calendar.current.isDate(lhs.signInDate, equalTo: rhs.signInDate, toGranularity: .nanosecond) && lhs.userId == rhs.userId
     }
 }

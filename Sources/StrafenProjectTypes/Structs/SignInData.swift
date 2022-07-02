@@ -18,6 +18,12 @@ public struct SignInData: ISignInData {
     
     /// User id of the person.
     public private(set) var userId: String
+
+    public init(admin: Bool, signInDate: Date, userId: String) {
+        self.admin = admin
+        self.signInDate = signInDate
+        self.userId = userId
+    }
 }
 
 extension SignInData {

@@ -15,6 +15,11 @@ public struct Amount: IAmount {
     
     /// Subunit value of the amount.
     @Clamping(0...99) public private(set) var subUnitValue: UInt = .zero
+
+    public init(value: UInt, subUnitValue: UInt) {
+        self.value = value
+        self.subUnitValue = subUnitValue
+    }
 }
 
 extension Amount {

@@ -15,6 +15,11 @@ public struct PersonName: IPersonName {
     
     /// Last name of the person.
     public private(set) var last: String?
+
+    public init(first: String, last: String? = nil) {
+        self.first = first
+        self.last = last
+    }
 }
 
 extension PersonName {

@@ -24,6 +24,13 @@ public struct ReasonTemplate: IReasonTemplate {
     
     /// Importance of the reason template.
     public private(set) var importance: Importance
+
+    public init(id: ID, reasonMessage: String, amount: Amount, importance: Importance) {
+        self.id = id
+        self.reasonMessage = reasonMessage
+        self.amount = amount
+        self.importance = importance
+    }
 }
 
 extension ReasonTemplate {

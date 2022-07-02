@@ -15,7 +15,7 @@ public enum FineReason: IFineReason {
     
     /// Custom fine reason with reason message, amount and importance.
     case custom(reasonMessage: String, amount: Amount, importance: Importance)
-    
+
     public var concreteFineReason: FineReason { self }
 }
 

@@ -30,7 +30,15 @@ public struct Fine: IFine {
     
     /// Fine reason of the fine.
     public private(set) var fineReason: FineReason
-    
+
+    public init(id: ID, personId: Person.ID, payedState: PayedState, number: UInt, date: Date, fineReason: FineReason) {
+        self.id = id
+        self.personId = personId
+        self.payedState = payedState
+        self.number = number
+        self.date = date
+        self.fineReason = fineReason
+    }
 }
 
 extension Fine {

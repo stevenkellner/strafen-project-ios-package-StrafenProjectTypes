@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Contains propterties of a club in firebase realtime database.
 public struct Club: IClub {
     
     /// Type of the id of the club.
@@ -29,6 +30,15 @@ public struct Club: IClub {
     
     /// User ids of signed in persons.
     public private(set) var personUserIds: Dictionary<String, Person.ID>
+
+    public init(id: Club.ID, identifier: String, name: String, regionCode: String, inAppPaymentActive: Bool, personUserIds: Dictionary<String, Person.ID>) {
+        self.id = id
+        self.identifier = identifier
+        self.name = name
+        self.regionCode = regionCode
+        self.inAppPaymentActive = inAppPaymentActive
+        self.personUserIds = personUserIds
+    }
 }
 
 extension Club {

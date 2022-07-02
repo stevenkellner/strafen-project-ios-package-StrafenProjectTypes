@@ -21,6 +21,12 @@ public struct Person: IPerson {
     
     /// Sign in data of a person.
     public private(set) var signInData: SignInData?
+
+    public init(id: ID, name: PersonName, signInData: SignInData? = nil) {
+        self.id = id
+        self.name = name
+        self.signInData = signInData
+    }
 }
 
 extension Person {

@@ -10,7 +10,7 @@ import Foundation
 public struct Club: IClub {
     
     /// Type of the id of the club.
-    public typealias ID = Tagged<(Person, id: ()), UUID>
+    public typealias ID = Tagged<(Club, id: ()), UUID>
     
     /// Id of the club.
     public private(set) var id: Club.ID

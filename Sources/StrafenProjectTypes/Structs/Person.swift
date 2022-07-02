@@ -18,6 +18,9 @@ public struct Person: IPerson {
     
     /// Name of the person.
     public private(set) var name: PersonName
+    
+    /// Sign in data of a person.
+    public private(set) var signInData: SignInData?
 }
 
 extension Person {
@@ -27,11 +30,14 @@ extension Person {
     public init(_ person: some IPerson) {
         self.id = person.id
         self.name = PersonName(person.name)
+        if let signInData = person.signInData {
+            self.signInData = SignInData(signInData)
+        }
     }
 }
 
 extension Person: Equatable {
     public static func ==(lhs: Person, rhs: Person) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.signInData == rhs.signInData
     }
 }

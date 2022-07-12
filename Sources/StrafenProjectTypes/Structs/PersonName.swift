@@ -32,8 +32,12 @@ extension PersonName {
     }
 }
 
-extension PersonName: Equatable {
-    public static func ==(lhs: PersonName, rhs: PersonName) -> Bool {
-        return lhs.first == rhs.first && lhs.last == rhs.last
-    }
-}
+extension PersonName: Equatable {}
+
+extension PersonName: Decodable {}
+
+extension PersonName: Encodable {}
+
+extension PersonName: Sendable {}
+
+extension PersonName: Hashable {}

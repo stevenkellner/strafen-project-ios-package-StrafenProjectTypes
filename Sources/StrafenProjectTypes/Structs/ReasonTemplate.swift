@@ -45,8 +45,12 @@ extension ReasonTemplate {
     }
 }
 
-extension ReasonTemplate: Equatable {
-    public static func ==(lhs: ReasonTemplate, rhs: ReasonTemplate) -> Bool {
-        return lhs.id == rhs.id && lhs.reasonMessage == rhs.reasonMessage && lhs.amount == rhs.amount && lhs.importance == rhs.importance
-    }
-}
+extension ReasonTemplate: Equatable {}
+
+extension ReasonTemplate: Decodable {}
+
+extension ReasonTemplate: Encodable {}
+
+extension ReasonTemplate: Sendable {}
+
+extension ReasonTemplate: Hashable {}

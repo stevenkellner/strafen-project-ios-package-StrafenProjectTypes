@@ -42,11 +42,16 @@ extension LatePaymentInterest {
     }
 }
 
-extension LatePaymentInterest: Equatable {
-    public static func ==(lhs: LatePaymentInterest, rhs: LatePaymentInterest) -> Bool {
-        return lhs.interestFreePeriod == rhs.interestFreePeriod && lhs.interestPeriod == rhs.interestPeriod && lhs.interestRate == rhs.interestRate && lhs.compoundInterest == rhs.compoundInterest
-    }
-}
+extension LatePaymentInterest: Equatable {}
+
+extension LatePaymentInterest: Decodable {}
+
+extension LatePaymentInterest: Encodable {}
+
+extension LatePaymentInterest: Sendable {}
+
+extension LatePaymentInterest: Hashable {}
+
 
 /// Contains a value and an unit of `day`, `month`, `year`.
 public struct TimePeriod: ITimePeriod {
@@ -73,11 +78,15 @@ extension TimePeriod {
     }
 }
 
-extension TimePeriod: Equatable {
-    public static func ==(lhs: TimePeriod, rhs: TimePeriod) -> Bool {
-        return lhs.value == rhs.value && lhs.unit == rhs.unit
-    }
-}
+extension TimePeriod: Equatable {}
+
+extension TimePeriod: Decodable {}
+
+extension TimePeriod: Encodable {}
+
+extension TimePeriod: Sendable {}
+
+extension TimePeriod: Hashable {}
 
 /// Unit of a time period.
 public enum TimePeriodUnit: ITimePeriodUnit {
@@ -104,3 +113,11 @@ extension TimePeriodUnit {
 }
 
 extension TimePeriodUnit: Equatable {}
+
+extension TimePeriodUnit: Decodable {}
+
+extension TimePeriodUnit: Encodable {}
+
+extension TimePeriodUnit: Sendable {}
+
+extension TimePeriodUnit: Hashable {}

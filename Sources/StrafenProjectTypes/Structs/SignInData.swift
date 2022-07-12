@@ -37,8 +37,12 @@ extension SignInData {
     }
 }
 
-extension SignInData: Equatable {
-    public static func ==(lhs: SignInData, rhs: SignInData) -> Bool {
-        return lhs.admin == rhs.admin && Calendar.current.isDate(lhs.signInDate, equalTo: rhs.signInDate, toGranularity: .nanosecond) && lhs.userId == rhs.userId
-    }
-}
+extension SignInData: Equatable {}
+
+extension SignInData: Decodable {}
+
+extension SignInData: Encodable {}
+
+extension SignInData: Sendable {}
+
+extension SignInData: Hashable {}

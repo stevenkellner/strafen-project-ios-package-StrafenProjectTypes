@@ -48,3 +48,49 @@ extension PayedState: Equatable {
         }
     }
 }
+
+extension PayedState: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case state
+        case inApp
+        case payDate
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let state = try container.decode(String.self, forKey: .state)
+        switch state {
+        case "payed":
+            self = .payed(
+                inApp: try container.decode(Bool.self, forKey: .inApp),
+                payDate: try container.decode(Date.self, forKey: .payDate)
+            )
+        case "unpayed":
+            self = .unpayed
+        case "settled":
+            self = .settled
+        default:
+            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: container.codingPath + [CodingKeys.state], debugDescription: "Invalid state: \(state)."))
+        }
+    }
+}
+
+extension PayedState: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .payed(inApp: let inApp, payDate: let payDate):
+            try container.encode("payed", forKey: .state)
+            try container.encode(inApp, forKey: .inApp)
+            try container.encode(payDate, forKey: .payDate)
+        case .unpayed:
+            try container.encode("unpayed", forKey: .state)
+        case .settled:
+            try container.encode("settled", forKey: .state)
+        }
+    }
+}
+
+extension PayedState: Sendable {}
+
+extension PayedState: Hashable {}

@@ -55,8 +55,12 @@ extension Fine {
     }
 }
 
-extension Fine: Equatable {
-    public static func ==(lhs: Fine, rhs: Fine) -> Bool {
-        return lhs.id == rhs.id && lhs.personId == rhs.personId && Calendar.current.isDate(lhs.date, equalTo: rhs.date, toGranularity: .nanosecond) && lhs.fineReason == rhs.fineReason && lhs.number == rhs.number && lhs.payedState == rhs.payedState
-    }
-}
+extension Fine: Equatable {}
+
+extension Fine: Decodable {}
+
+extension Fine: Encodable {}
+
+extension Fine: Sendable {}
+
+extension Fine: Hashable {}

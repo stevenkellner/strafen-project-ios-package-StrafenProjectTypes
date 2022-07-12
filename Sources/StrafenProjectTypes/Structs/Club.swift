@@ -55,9 +55,12 @@ extension Club {
     }
 }
 
-extension Club: Equatable {
-    public static func ==(lhs: Club, rhs: Club) -> Bool {
-        return lhs.id == rhs.id && lhs.identifier == rhs.identifier && lhs.name == rhs.name && lhs.regionCode == rhs.regionCode &&
-            lhs.inAppPaymentActive == rhs.inAppPaymentActive && lhs.personUserIds == rhs.personUserIds
-    }
-}
+extension Club: Equatable {}
+
+extension Club: Decodable {}
+
+extension Club: Encodable {}
+
+extension Club: Sendable {}
+
+extension Club: Hashable {}

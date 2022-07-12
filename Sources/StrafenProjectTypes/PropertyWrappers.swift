@@ -32,6 +32,12 @@ public struct Clamping<Value> where Value: Comparable {
     }
 }
 
+extension Clamping: Equatable {}
+
+extension Clamping: Sendable where Value: Sendable {}
+
+extension Clamping: Hashable where Value: Hashable {}
+
 extension ClosedRange {
     
     /// Clamps value between lower and upper bound

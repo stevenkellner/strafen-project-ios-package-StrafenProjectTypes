@@ -1,3 +1,4 @@
+// swiftlint:disable:this file_name
 //
 //  PropertyWrappers.swift
 //  
@@ -10,13 +11,13 @@ import Foundation
 /// Used to clamp a comparable value between lower and upper bound.
 @propertyWrapper
 public struct Clamping<Value> where Value: Comparable {
-    
+
     /// Clamped raw value.
     private var value: Value
-    
+
     /// Range to be clamped.
     private let range: ClosedRange<Value>
-    
+
     /// Initialized with raw value and range
     /// - Parameters:
     ///   - value: Value to clamp between range
@@ -25,7 +26,8 @@ public struct Clamping<Value> where Value: Comparable {
         self.value = range.clamp(value)
         self.range = range
     }
-    
+
+    /// Wrapped value
     public var wrappedValue: Value {
         get { value }
         set { value = range.clamp(newValue) }
@@ -39,7 +41,7 @@ extension Clamping: Sendable where Value: Sendable {}
 extension Clamping: Hashable where Value: Hashable {}
 
 extension ClosedRange {
-    
+
     /// Clamps value between lower and upper bound
     /// - Parameter value: Clamped value between lower and upper bound
     /// - Returns: Clamped value.

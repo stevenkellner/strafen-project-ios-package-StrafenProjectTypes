@@ -9,19 +9,19 @@ import Foundation
 
 /// Reason template with id, reason message, amount and importance.
 public struct ReasonTemplate: IReasonTemplate {
-    
+
     /// Type of the id of the reason template.
     public typealias ID = Tagged<(ReasonTemplate, id: ()), UUID>
-    
+
     /// Id of the reason template.
     public private(set) var id: ID
-    
+
     /// Reason message of the reason template.
     public private(set) var reasonMessage: String
-    
+
     /// Amount of the reason template.
     public private(set) var amount: Amount
-    
+
     /// Importance of the reason template.
     public private(set) var importance: Importance
 
@@ -34,7 +34,7 @@ public struct ReasonTemplate: IReasonTemplate {
 }
 
 extension ReasonTemplate {
-    
+
     /// Initializes reason template with a `IReasonTemplate` protocol.
     /// - Parameter reasonTemplate: `IReasonTemplate` protocol to initialize the reason template.
     public init(_ reasonTemplate: some IReasonTemplate) {

@@ -9,16 +9,16 @@ import Foundation
 
 /// Contains the importance of a fine or reason template.
 public enum Importance: IImportance {
-    
+
     /// Fine / reason template has high importance.
     case high
-    
+
     /// Fine / reason template has medium importance.
     case medium
-    
+
     /// Fine / reason template has low importance.
     case low
-    
+
     public var concreteImportance: Importance { self }
 }
 
@@ -34,7 +34,7 @@ extension Importance {
 extension Importance: Equatable {}
 
 extension Importance: Comparable {
-    public static func <(lhs: Importance, rhs: Importance) -> Bool {
+    public static func < (lhs: Importance, rhs: Importance) -> Bool {
         switch (lhs, rhs) {
         case (.low, .medium), (.low, .high), (.medium, .high): return true
         case (.high, .low), (.high, .medium), (.medium, .low): return false

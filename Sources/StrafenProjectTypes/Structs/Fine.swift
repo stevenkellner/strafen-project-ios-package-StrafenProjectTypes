@@ -9,25 +9,25 @@ import Foundation
 
 /// Contains all properties of a fine.
 public struct Fine: IFine {
-    
+
     /// Type of the id of the fine.
     public typealias ID = Tagged<(Fine, id: ()), UUID>
-    
+
     /// Id of the fine.
     public private(set) var id: ID
-    
+
     /// Associated person id of the fine.
     public private(set) var personId: Person.ID
-    
+
     /// Payed state of the fine.
     public private(set) var payedState: PayedState
-    
+
     /// Number of the fine.
     public private(set) var number: UInt
-    
+
     /// Date of the fine.
     public private(set) var date: Date
-    
+
     /// Fine reason of the fine.
     public private(set) var fineReason: FineReason
 
@@ -42,7 +42,7 @@ public struct Fine: IFine {
 }
 
 extension Fine {
-    
+
     /// Initializes fine with a `IFine` protocol.
     /// - Parameter fine: `IFine` protocol to initialize the fine.
     public init(_ fine: some IFine) {

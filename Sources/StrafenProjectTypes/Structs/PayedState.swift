@@ -9,21 +9,21 @@ import Foundation
 
 /// Contains properties if a fine is payed.
 public enum PayedState: IPayedState {
-    
+
     /// Fine is payed.
     case payed(inApp: Bool, payDate: Date)
-    
+
     /// Fine is unpayed.
     case unpayed
-    
+
     /// Fine is settled.
     case settled
-    
+
     public var concretePayedState: PayedState { self }
 }
 
 extension PayedState {
-    
+
     /// Initializes payed state with a `IPayedState` protocol.
     /// - Parameter payedState: `IPayedState` protocol to initialize the payed state.
     public init(_ payedState: some IPayedState) {
@@ -32,12 +32,9 @@ extension PayedState {
 }
 
 extension PayedState: Equatable {
-    public static func ==(lhs: PayedState, rhs: PayedState) -> Bool {
+    public static func == (lhs: PayedState, rhs: PayedState) -> Bool {
         switch (lhs, rhs) {
-        case (
-                .payed(inApp: let lhsInApp, payDate: let lhsPayDate),
-                .payed(inApp: let rhsInApp, payDate: let rhsPayDate)
-            ):
+        case let (.payed(inApp: lhsInApp, payDate: lhsPayDate), .payed(inApp: rhsInApp, payDate: rhsPayDate)):
             return lhsInApp == rhsInApp && Calendar.current.isDate(lhsPayDate, equalTo: rhsPayDate, toGranularity: .nanosecond)
         case (.unpayed, .unpayed):
             return true
@@ -79,7 +76,7 @@ extension PayedState: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
-        case .payed(inApp: let inApp, payDate: let payDate):
+        case let .payed(inApp: inApp, payDate: payDate):
             try container.encode("payed", forKey: .state)
             try container.encode(inApp, forKey: .inApp)
             try container.encode(payDate, forKey: .payDate)

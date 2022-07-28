@@ -52,7 +52,6 @@ extension LatePaymentInterest: Sendable {}
 
 extension LatePaymentInterest: Hashable {}
 
-
 /// Contains a value and an unit of `day`, `month`, `year`.
 public struct TimePeriod: ITimePeriod {
 

@@ -9,16 +9,16 @@ import Foundation
 
 /// Person with id and a name.
 public struct Person: IPerson {
-    
+
     /// Type of the id of the person.
     public typealias ID = Tagged<(Person, id: ()), UUID>
-    
+
     /// Id of the person.
     public private(set) var id: ID
-    
+
     /// Name of the person.
     public private(set) var name: PersonName
-    
+
     /// Sign in data of a person.
     public private(set) var signInData: SignInData?
 
@@ -30,7 +30,7 @@ public struct Person: IPerson {
 }
 
 extension Person {
-    
+
     /// Initializes person with a `IPerson` protocol.
     /// - Parameter person: `IPerson` protocol to initialize the person.
     public init(_ person: some IPerson) {

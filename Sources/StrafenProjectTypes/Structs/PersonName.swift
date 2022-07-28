@@ -9,10 +9,10 @@ import Foundation
 
 /// Contains first and optionally last name of a person.
 public struct PersonName: IPersonName {
-    
+
     /// First name of the person.
     public private(set) var first: String
-    
+
     /// Last name of the person.
     public private(set) var last: String?
 
@@ -23,7 +23,7 @@ public struct PersonName: IPersonName {
 }
 
 extension PersonName {
-    
+
     /// Initializes person name with a `IPersonName` protocol.
     /// - Parameter personName: `IPersonName` protocol to initialize the person name.
     public init(_ personName: some IPersonName) {

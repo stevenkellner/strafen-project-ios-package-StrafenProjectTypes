@@ -1,4 +1,4 @@
-import XCTest
 @testable import StrafenProjectTypes
+import XCTest
 
-final class StrafenProjectTypesTests: XCTestCase {}
+public final class StrafenProjectTypesTests: XCTestCase {}
